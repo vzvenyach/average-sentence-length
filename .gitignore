@@ -1,0 +1,5 @@
+**/__pycache__
+.cache
+.eggs
+.tox
+average.egg-info
