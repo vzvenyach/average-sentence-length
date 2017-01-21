@@ -12,7 +12,13 @@ def get(text):
     sentence_list = sent_tokenize(text.strip())
     word_list = [_remove_punctuation_and_tokenize(words) for words in sentence_list]
     length_list = [len(word) for word in word_list]
-    return {"average": float(format(statistics.mean(length_list), '.2f')), "number_of_sentences": len(sentence_list)}
+    return {
+        "average": float(format(statistics.mean(length_list), '.2f')),
+        "number_of_sentences": len(sentence_list),
+        "longest": max(length_list),
+        "shortest": min(length_list),
+        "stdev": float(format(statistics.stdev(length_list), '.2f')),
+    }
 
 def _remove_punctuation_and_tokenize(sentence):
     """
